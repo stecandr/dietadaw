@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="fitness" />
+		<meta name="keywords" content="fitness, dieta, control de alimentación, salud" />
+        <!-- <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" /> -->
+		<title>{% block title %}Inicio{% endblock %} - Control de Alimentación</title>
+		{% block stylesheets %}<link rel="stylesheet" href="{{ asset('bundles/dawdieta/css/fitnessStyle.css') }}" />{% endblock %}
+		
+
+	</head>
+	<body>
+		<nav id="main_nav">
+			<div id="main_inner_nav">
+				{% block nav %}<ul>
+					<li><a href="{{ path('daw_dieta_homepage') }}"><span class="icon"><span class="icon-menuhome"> </span></span><span class="menu_text">Inicio</span></a></li>
+					<li><a href="{{ path('daw_dieta_quecomer') }}"><span class="icon"><span class="icon-menufood"> </span></span><span class="menu_text">Qué comer</span></a></li>
+					<li><a href="{{ path('daw_dieta_quebeber') }}"><span class="icon"><span class="icon-menuglass"> </span></span><span class="menu_text">Qué beber</span></a></li>
+					<li><a href="recetas.html"><span class="icon"><span class="icon-menubook"> </span></span><span class="menu_text">Recetas</span></a></li>
+					<li><a href="calendario.html"><span class="icon"><span class="icon-menucalendar"> </span></span><span class="menu_text">Calendario de dieta</span></a></li>
+					<li><a href="{{ path('usuario_new') }}"><span class="icon"><span class="icon-menuuser"> </span></span><span class="menu_text">{% block linkregistro %}Registro{% endblock %}</span></a></li>
+				</ul>{% endblock %}
+			</div>
+		</nav>
+		<div id="main_wrapper">
+			<header id="main_header">
+				<div id="main_title">Salud + Alimentaci&oacute;n = Buena vida !</div>
+			</header>
+			<div id="section_wrapper">
+				<section id="main_section">
+					{% block body %}<article id="main_article">
+					</article>
+					<article id="botones">
+						<div id="bot">
+							<button type="button" id="atras">Atras</button>
+							<button type="button" id="adelante">Adelante</button>
+						</div>
+					</article>{% endblock %}
+				</section>
+				<aside id="main_aside">{% block sideinicio %}{% endblock %}
+					
+					{% block sidebar %}<header>Acerca de</header>
+					<br />Esta p&aacute;gina esta dedicada a proveer informaci&oacute;n acerca de h&aacute;bitos alimenticios y c&oacute;mo, a partir de una buena alimentaci&oacute;n, podemos ser capaces de mejorar nuestra salud y tener un mejor estilo de vida.<br /><br />
+					Aqu&iacute; podr&aacute;n encontrar recetas y alimentos ideales para tener una buena alimentaci&oacute;n, a la vez de poder llevar control de su alimentaci&oacute;n y su dieta.
+					<br /><br />
+					<header>Men&uacute;</header>
+					<ul>
+						<li><a href="{{ path('daw_dieta_homepage') }}">Inicio</a></li>
+						<li><a href="{{ path('daw_dieta_quecomer') }}">Qué comer</a></li>
+						<li><a href="{{ path('daw_dieta_quebeber') }}">Qué beber</a></li>
+						<li><a href="recetas.html">Recetas</a></li>
+						<li><a href="calendario.html">Calendario de dietas</a></li>
+						<li><a href="{{ path('usuario_new') }}">Registro</a></li>
+						<li><a href="{{ path('login') }}">Iniciar sesión</a></li>
+					</ul>{% endblock %}
+				</aside>
+			</div>
+			<footer id="main_footer">{% block footer %}Control de Alimentación &copy; DAW <a href="https://daw-grupoproyecto.visualstudio.com/">Grupo 9</a> 2013 - 2014{% endblock %}</footer>
+		</div>
+		{% block scripts %}<script src="{{ asset('bundles/dawdieta/js/fitnessScript.js') }}"></script>{% endblock %}
+	</body>
+</html>

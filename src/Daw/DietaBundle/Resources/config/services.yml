@@ -1,0 +1,7 @@
+parameters:
+#    daw_dieta.example.class: Daw\DietaBundle\Example
+
+services:
+#    daw_dieta.example:
+#        class: %daw_dieta.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

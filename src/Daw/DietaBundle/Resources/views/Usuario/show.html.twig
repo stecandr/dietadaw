@@ -1,0 +1,64 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+{% block title %}Registro completo{% endblock %}
+{% block body %}
+    <header>¡ Registro completo !</header>
+	Estos son sus datos de registro:
+
+	<div id="registro_table">
+		<div class="registro_row">
+			<div class="registro_cell"><b>Nombre</b></div>
+			<div class="registro_cell">{{ entity.nombre }}</div>
+		</div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Apellido</b></div>
+			<div class="registro_cell">{{ entity.apellido }}</div>
+		</div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Teléfono</b></div>
+			<div class="registro_cell">{{ entity.telefono }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Fecha de nacimiento</b></div>
+			<div class="registro_cell">{{ entity.fechanac|date('Y-m-d') }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Correo</b></div>
+			<div class="registro_cell">{{ entity.correo }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Altura</b></div>
+			<div class="registro_cell">{{ entity.altura }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Peso</b></div>
+			<div class="registro_cell">{{ entity.peso }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Índice de Masa Corporal</b></div>
+			<div class="registro_cell">{{ entity.bmi }}</div>
+		</div>
+		<div class="registro_row">
+			<div class="registro_cell"></div>
+			<div class="registro_cell">
+				{% if entity.bmi < 15.9999 %}
+					Usted está en <b>infrapeso</b>
+				{% elseif entity.bmi < 24.9999 %}
+					Usted tiene un peso <b>normal</b>
+				{% elseif entity.bmi < 30.0000 %}
+					Usted tiene <b>sobrepeso</b>
+				{% else %}
+					Usted tiene <b>obesidad</b>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('usuario') }}">
+            Regreso
+        </a>
+    </li>
+
+</ul>
+{% endblock %}

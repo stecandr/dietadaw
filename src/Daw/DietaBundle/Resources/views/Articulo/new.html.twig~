@@ -1,0 +1,14 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+
+{% block body %}
+    <header>Nuevo artículo</header>
+
+    <form action="{{ path('articulo_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Crear</button>
+        </p>
+    </form>
+
+        <p><a href="{{ path('administrador') }}">Regreso a la página de Administrador</a></p>
+{% endblock %}

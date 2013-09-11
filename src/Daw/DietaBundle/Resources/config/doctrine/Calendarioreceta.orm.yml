@@ -1,0 +1,39 @@
+Daw\DietaBundle\Entity\Calendarioreceta:
+    type: entity
+    table: calendarioreceta
+    uniqueConstraints:
+        idreceta:
+            columns:
+                - idreceta
+        idcalend:
+            columns:
+                - idcalend
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idreceta:
+            targetEntity: Receta
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idreceta:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idcalend:
+            targetEntity: Calendario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idcalend:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

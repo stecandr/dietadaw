@@ -1,0 +1,208 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+
+
+{% block body %}
+
+<div id="calendario_table">
+	<div class="calendario_row" id="row_titulo">
+		<div class="calendario_cell">
+			Días\Horario
+		</div>
+		<div class="calendario_cell cal_titulo">
+			Desayuno
+		</div>
+		<div class="calendario_cell cal_titulo">
+			Medio d&iacute;a
+		</div>
+		<div class="calendario_cell cal_titulo">
+			Almuerzo
+		</div>
+		<div class="calendario_cell cal_titulo">
+			Media tarde
+		</div>
+		<div class="calendario_cell cal_titulo">
+			Merienda
+		</div>
+		<div class="calendario_cell cal_titulo" id="total0">
+			Total (kcal)
+		</div>
+	</div>
+	<div class="calendario_row" id="row_domingo">
+		<div class="calendario_cell cal_titulo">
+			Domingo
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell" id="total1">
+		</div>
+	</div>
+	<div class="calendario_row" id="row_lunes">
+		<div class="calendario_cell cal_titulo">
+			Lunes
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell" id="total2">
+		</div>
+	</div>
+	<div class="calendario_row" id="row_martes">
+		<div class="calendario_cell cal_titulo">
+			Martes
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell" id="total3">
+		</div>
+	</div>
+	<div class="calendario_row" id="row_mierc">
+		<div class="calendario_cell cal_titulo">
+			Miércoles
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell" id="total4">
+		</div>
+	</div>
+	<div class="calendario_row" id="row_jueves">
+		<div class="calendario_cell cal_titulo">
+			Jueves
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell" id="total5">
+		</div>
+	</div>
+	<div class="calendario_row" id="row_viernes">
+		<div class="calendario_cell cal_titulo">
+			Viernes
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell" id="total6">
+		</div>
+	</div>
+	<div class="calendario_row" id="row_sabado">
+		<div class="calendario_cell cal_titulo">
+			S&aacute;bado
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell receta_cel">
+			
+		</div>
+		<div class="calendario_cell" id="total7">
+		</div>
+	</div>
+</div>
+<div id="lista_recetas">
+	<header>Recetas</header>
+	Arrastra las comidas en cada d&iacute;a y horario del d&iacute;a y arma tu calendario de dieta semanal.
+	
+	<div class="recetas_group receta_cel">
+		{% for receta in recetas %}
+			<div class="recetas_cal" id="recetas{{receta.id}}" draggable="undefined" alt="{{receta.calorias}}">
+				{{receta.titulo}} Kcal:{{receta.calorias}}
+			</div>	
+		{% endfor %}	
+	</div>	
+</div>
+
+<div id="botonImprimir">
+		<button type="button" id="imprimir" onclick="imprime()">Imprimir</button>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{parent()}}
+<script type="text/javascript" src="{{ asset('bundles/dawdieta/js/calScript.js') }}"></script>
+{% endblock %}
+

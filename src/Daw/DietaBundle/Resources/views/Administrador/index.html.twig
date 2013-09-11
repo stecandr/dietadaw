@@ -1,0 +1,11 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+
+{% block body %}
+<header>Administrador</header>
+Seleccione una opción a realizar:
+<ul>
+	<li><a href="{{ path('admin_usuarios') }}">Ver la lista de usuarios</a></li>
+	<li><a href="{{ path('articulo') }}">Ver la lista de artículos</a></li>
+	<li><a href="{{ path('articulo_new') }}">Crear un nuevo artículo</a></li>
+</ul>
+    {% endblock %}

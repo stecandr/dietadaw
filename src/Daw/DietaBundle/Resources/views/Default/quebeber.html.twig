@@ -1,0 +1,44 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+{% block stylesheets %}
+{{parent()}}
+<link rel="stylesheet" href="{{ asset('bundles/dawdieta/css/cleanSlider.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/dawdieta/js/jquery-1.4.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/dawdieta/js/jquery.cleanSlider.js') }}"></script>
+{% endblock %}
+{% block body %}
+
+<script>
+$(document).ready(function(){
+	var config={};
+	config.width =650;  //pixels
+	config.height=350;  //pixels 
+	config.intervalTime  =7000; //mili-seconds   
+	$('.slider').cleanSlider(config);
+})
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=197345677113250";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="slider" id="slide">
+	<ul>
+		{% for articulo in articulos %}
+			{% if articulo.tipo==3 %}
+				<li class="prueba">
+					<a rel="no-follow" target="blank_" title="{{articulo.titulo}}" alt="{{articulo.fuente}}">
+						<img src="{{asset('bundles/dawdieta/images/'~articulo.img)}}" alt="{{articulo.descripcion}}"/>
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>
+<div class="fb-comments" data-href="http://dawFitness.com" data-width="470"></div>
+{% endblock %}

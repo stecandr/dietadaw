@@ -1,0 +1,27 @@
+Daw\DietaBundle\Entity\Calendario:
+    type: entity
+    table: calendario
+    uniqueConstraints:
+        usuario:
+            columns:
+                - usuario
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        usuario:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                usuario:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

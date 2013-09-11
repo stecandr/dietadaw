@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <header>¡ Registro completo !</header>
+	Estos son sus datos de registro:
+
+	<div style="display:table;">
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Nombre</div>
+			<div style="display:table-cell;">{{ entity.nombre }}</div>
+		</div>
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Apellido</div>
+			<div style="display:table-cell;">{{ entity.apellido }}</div>
+		</div>
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Telefono</div>
+			<div style="display:table-cell;">{{ entity.telefono }}</div>
+            </tr>
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Fechanac</div>
+			<div style="display:table-cell;">{{ entity.fechanac|date('Y-m-d') }}</div>
+            </tr>
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Correo</div>
+			<div style="display:table-cell;">{{ entity.correo }}</div>
+            </tr>
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Altura</div>
+			<div style="display:table-cell;">{{ entity.altura }}</div>
+            </tr>
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Peso</div>
+			<div style="display:table-cell;">{{ entity.peso }}</div>
+            </tr>
+		<div style="display:table-row;">
+			<div style="display:table-cell;">Bmi</div>
+			<div style="display:table-cell;">{{ entity.bmi }}</div>
+		</div>
+		<div style="display:table-row;">
+			<div style="display:table-cell;"></div>
+			<div style="display:table-cell;">
+				{% if entity.bmi < 15.9999 %}
+					Usted está en infrapeso
+				{% elseif entity.bmi < 24.9999 %}
+					Usted tiene un peso normal
+				{% elseif entity.bmi < 30.0000 %}
+					Usted tiene sobrepeso
+				{% else %}
+					Usted tiene obesidad
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('usuario') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('usuario_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('usuario_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

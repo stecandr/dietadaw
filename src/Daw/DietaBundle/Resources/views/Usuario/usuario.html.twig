@@ -1,0 +1,58 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+{% block title %}Usuario{% endblock %}
+{% block body %}
+<header>Usuario</header>
+<h2>Datos de usuario</h2>
+	<div id="registro_table">
+		<div class="registro_row">
+			<div class="registro_cell"><b>Nombre</b></div>
+			<div class="registro_cell">{{ app.user.nombre }}</div>
+		</div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Apellido</b></div>
+			<div class="registro_cell">{{ app.user.apellido }}</div>
+		</div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Teléfono</b></div>
+			<div class="registro_cell">{{ app.user.telefono }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Fecha de nacimiento</b></div>
+			<div class="registro_cell">{{ app.user.fechanac|date('Y-m-d') }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Correo</b></div>
+			<div class="registro_cell">{{ app.user.correo }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Altura</b></div>
+			<div class="registro_cell">{{ app.user.altura }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Peso</b></div>
+			<div class="registro_cell">{{ app.user.peso }}</div>
+        </div>
+		<div class="registro_row">
+			<div class="registro_cell"><b>Índice de Masa Corporal</b></div>
+			<div class="registro_cell">{{ app.user.bmi }}</div>
+		</div>
+		<div class="registro_row">
+			<div class="registro_cell"></div>
+			<div class="registro_cell">
+				{% if app.user.bmi < 15.9999 %}
+					Usted está en <b>infrapeso</b>
+				{% elseif app.user.bmi < 24.9999 %}
+					Usted tiene un peso <b>normal</b>
+				{% elseif app.user.bmi < 30.0000 %}
+					Usted tiene <b>sobrepeso</b>
+				{% else %}
+					Usted tiene <b>obesidad</b>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+<div>Seleccione una opción a realizar:
+<ul>
+	<li>Ver las recetas</li>
+</ul></div>
+{% endblock %}

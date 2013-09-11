@@ -1,0 +1,106 @@
+Daw\DietaBundle\Entity\Usuario:
+    type: entity
+    table: usuario
+    indexes:
+        nombre:
+            columns:
+                - nombre
+        apellido:
+            columns:
+                - apellido
+    uniqueConstraints:
+        correo:
+            columns:
+                - correo
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        apellido:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        telefono:
+            type: string
+            nullable: false
+            length: 15
+            fixed: false
+            comment: ''
+        fechanac:
+            type: date
+            nullable: false
+            comment: ''
+        correo:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        password:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        salt:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        altura:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            comment: ''
+            default: '0'
+        peso:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            comment: ''
+            default: '0'
+        bmi:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            default: '0'
+        fecharegistro:
+            type: datetime
+            nullable: true
+            comment: ''
+            default: CURRENT_TIMESTAMP
+        estaactivo:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: '1'
+            column: estaActivo
+        role:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: 'ROLE_USER'
+    lifecycleCallbacks:
+        prePersist: [setBmi, setFecharegistro, setEstaactivo, getRoles]
+        preUpdate: [setBmi]

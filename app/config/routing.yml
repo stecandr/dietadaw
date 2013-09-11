@@ -1,0 +1,4 @@
+daw_dieta:
+    resource: "@DawDietaBundle/Resources/config/routing.yml"
+    prefix:   /
+

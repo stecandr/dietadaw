@@ -1,0 +1,15 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+{% block body %}
+    <header>Registro de Usuario</header>
+
+    <div id="registro_table"><form action="{{ path('usuario_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <div class="registro_row">
+            <div class="registro_cell"></div><div class="registro_cell"><button type="submit">Registrar</button></div>
+        </div>
+    </form></div>
+
+        <br />¿Ya tienes una cuenta? ¡<a href="{{ path('login') }}">Inicia sesión</a>!
+{% endblock %}

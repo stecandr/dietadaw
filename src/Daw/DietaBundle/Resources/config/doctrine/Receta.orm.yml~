@@ -1,0 +1,64 @@
+Daw\DietaBundle\Entity\Receta:
+    type: entity
+    table: receta
+    indexes:
+        fechapub:
+            columns:
+                - fechapub
+        titulo:
+            columns:
+                - titulo
+        autor:
+            columns:
+                - autor
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titulo:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        ingredientes:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        preparacion:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        fechapub:
+            type: datetime
+            nullable: true
+            comment: ''
+            default: CURRENT_TIMESTAMP
+        img:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+    manyToOne:
+        autor:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                autor:	
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks:
+        prePersist: [setFechapub, setAutor]

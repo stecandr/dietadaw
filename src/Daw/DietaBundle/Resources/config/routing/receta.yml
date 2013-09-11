@@ -1,0 +1,30 @@
+receta:
+    pattern:  /
+    defaults: { _controller: "DawDietaBundle:Receta:index" }
+
+receta_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DawDietaBundle:Receta:show" }
+
+receta_new:
+    pattern:  /new
+    defaults: { _controller: "DawDietaBundle:Receta:new" }
+
+receta_create:
+    pattern:  /create
+    defaults: { _controller: "DawDietaBundle:Receta:create" }
+    requirements: { _method: post }
+
+receta_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DawDietaBundle:Receta:edit" }
+
+receta_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DawDietaBundle:Receta:update" }
+    requirements: { _method: post|put }
+
+receta_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DawDietaBundle:Receta:delete" }
+    requirements: { _method: post|delete }

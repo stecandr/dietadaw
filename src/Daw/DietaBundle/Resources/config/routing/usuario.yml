@@ -1,0 +1,21 @@
+usuario:
+    pattern:  /
+    defaults: { _controller: "DawDietaBundle:Usuario:usuario" }
+
+usuario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DawDietaBundle:Usuario:show" }
+
+usuario_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DawDietaBundle:Usuario:edit" }
+
+usuario_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DawDietaBundle:Usuario:update" }
+    requirements: { _method: post|put }
+
+DawDietaBundle_receta:
+        resource: "@DawDietaBundle/Resources/config/routing/receta.yml"
+        prefix:   /receta
+

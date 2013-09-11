@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block sideinicio %}
+	<header>Usuario</header>
+	</p>¡Hola
+	{% if app.user %}
+		<strong>{{ app.user.nombre }}</strong>!<br />
+		{% if is_granted('ROLE_ADMIN') %}<a href="{{ path('administrador') }}">Página de administrador</a>{% else %}<a href="{{ path('usuario') }}">Página de usuario</a>{% endif %} | <a href="{{ path('logout') }}">Cerrar sesión</a>
+	{% else %}
+		<strong>Invitado</strong>!<br />
+		<a href="{{ path('login') }}">Inicie sesión</a> o <a href="{{ path('usuario_new') }}">Regístrese</a>		
+	{% endif %}</p>
+{% endblock %}

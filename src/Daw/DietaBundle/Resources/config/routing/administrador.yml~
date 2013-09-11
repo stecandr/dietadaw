@@ -1,0 +1,25 @@
+administrador:
+    pattern:  /
+    defaults: { _controller: "DawDietaBundle:Administrador:index" }
+
+admin_usuarios:
+    pattern:  /userlist
+    defaults: { _controller: "DawDietaBundle:Usuario:index" }
+
+admin_usuario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DawDietaBundle:Usuario:show" }
+
+admin_usuario_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DawDietaBundle:Usuario:edit" }
+
+admin_usuario_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DawDietaBundle:Usuario:update" }
+    requirements: { _method: post|put }
+
+admin_usuario_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DawDietaBundle:Usuario:delete" }
+    requirements: { _method: post|delete }

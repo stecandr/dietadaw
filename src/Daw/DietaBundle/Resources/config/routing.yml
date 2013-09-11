@@ -1,0 +1,54 @@
+daw_dieta_homepage:
+    pattern:  /
+    defaults: { _controller: DawDietaBundle:Default:index }
+
+daw_dieta_quecomer:
+    pattern:  /quecomer
+    defaults: { _controller: DawDietaBundle:Default:quecomer }
+
+daw_dieta_quebeber:
+    pattern:  /quebeber
+    defaults: { _controller: DawDietaBundle:Default:quebeber }
+
+daw_dieta_recetas:
+    pattern:  /recetas
+    defaults: { _controller: DawDietaBundle:Default:recetas }
+
+daw_dieta_calendario:
+    pattern:  /calendario
+    defaults: { _controller: DawDietaBundle:Default:calendario }
+
+login:
+    pattern: /login
+    defaults: { _controller: DawDietaBundle:Security:login }
+ 
+login_check:
+    pattern: /login_check
+
+login_redirect:
+    pattern: /loginredirect
+    defaults: { _controller: DawDietaBundle:Security:loginRedirect }
+ 
+logout:
+    path:   /logout
+
+DawDietaBundle_admin:
+    resource: "@DawDietaBundle/Resources/config/routing/administrador.yml"
+    prefix:   /admin
+
+DawDietaBundle_usuario:
+    resource: "@DawDietaBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+
+usuario_new:
+    pattern:  /registro
+    defaults: { _controller: "DawDietaBundle:Usuario:new" }
+
+usuario_create:
+    pattern:  /create
+    defaults: { _controller: "DawDietaBundle:Usuario:create" }
+    requirements: { _method: post }
+
+usuario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DawDietaBundle:Usuario:show" }

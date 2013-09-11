@@ -1,0 +1,30 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+{% block title %}Inicio sesión{% endblock %}
+{% block body %}<header>Inicia sesión</header>
+<div style="display:table;"><form action="{{ path('login_check') }}" method="post">
+	<div style="display:table-row;">
+		<div style="display:table-cell;"><label for="username">E-mail:</label></div>
+		<div style="display:table-cell;"><input type="text" id="username" name="_username" value="{{ last_username }}" /></div>
+	</div>
+
+	<div style="display:table-row;">
+			<div style="display:table-cell;"><label for="password">Contraseña:</label></div>
+    		<div style="display:table-cell;"><input type="password" id="password" name="_password" /></div>
+	</div>
+
+    {#
+        If you want to control the URL the user
+        is redirected to on success (more details below)
+        <input type="hidden" name="_target_path" value="/account" />
+    #}
+
+    <div style="display:table-row;">
+		<div style="display:table-cell;"> </div>
+		<div style="display:table-cell;"><button type="submit">Iniciar Sesión</button></div>
+	</div>
+</form></div>
+
+{% if error %}
+    <div id="login_error">{{ error.message }}</div>
+{% endif %}
+{% endblock %}

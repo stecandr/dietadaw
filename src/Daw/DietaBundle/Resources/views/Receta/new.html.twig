@@ -1,0 +1,20 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+{% block title %}Nueva receta{% endblock %}
+{% block body %}
+    <header>Nueva receta</header>
+
+    <form action="{{ path('receta_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Crear</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('receta') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

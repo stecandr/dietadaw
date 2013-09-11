@@ -1,0 +1,30 @@
+articulo:
+    pattern:  /
+    defaults: { _controller: "DawDietaBundle:Articulo:index" }
+
+articulo_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DawDietaBundle:Articulo:show" }
+
+articulo_new:
+    pattern:  /new
+    defaults: { _controller: "DawDietaBundle:Articulo:new" }
+
+articulo_create:
+    pattern:  /create
+    defaults: { _controller: "DawDietaBundle:Articulo:create" }
+    requirements: { _method: post }
+
+articulo_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DawDietaBundle:Articulo:edit" }
+
+articulo_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DawDietaBundle:Articulo:update" }
+    requirements: { _method: post|put }
+
+articulo_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DawDietaBundle:Articulo:delete" }
+    requirements: { _method: post|delete }

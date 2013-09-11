@@ -1,0 +1,17 @@
+{% extends 'DawDietaBundle::layout.html.twig' %}
+{% block title %}Recetas{% endblock %}
+{% block body %}
+{% if app.user %}<div style="text-align:right;"><form action="{{ path('receta_new') }}" method="get"><button type="submit">Publica tu receta</button></form></div>{% endif %}
+{% for receta in recetas %}
+	<article>
+		<header>{{receta.titulo}}</header>
+		Publicado por <em>{{receta.autor}}</em>
+		<h3>Calorías: {{receta.calorias}} KCal</h3>
+		<h3>Ingredientes</h3>
+		<p>{{receta.ingredientes}}</p>
+		<h3>Preparación</h3>
+		<p>{{receta.preparacion}}</p>
+	</article>
+{% endfor %}
+
+{% endblock %}
