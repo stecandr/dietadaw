@@ -18,7 +18,7 @@
 					<li><a href="{{ path('daw_dieta_quecomer') }}"><span class="icon"><span class="icon-menufood"> </span></span><span class="menu_text">Qué comer</span></a></li>
 					<li><a href="{{ path('daw_dieta_quebeber') }}"><span class="icon"><span class="icon-menuglass"> </span></span><span class="menu_text">Qué beber</span></a></li>
 					<li><a href="{{ path('daw_dieta_recetas') }}"><span class="icon"><span class="icon-menubook"> </span></span><span class="menu_text">Recetas</span></a></li>
-					<li><a href="calendario.html"><span class="icon"><span class="icon-menucalendar"> </span></span><span class="menu_text">Calendario de dieta</span></a></li>
+					<li><a href="{{ path('daw_dieta_calendario') }}"><span class="icon"><span class="icon-menucalendar"> </span></span><span class="menu_text">Calendario de dieta</span></a></li>
 					<li><a href="{{ path('usuario_new') }}"><span class="icon"><span class="icon-menuuser"> </span></span><span class="menu_text">{% block linkregistro %}Registro{% endblock %}</span></a></li>
 				</ul>{% endblock %}
 			</div>
@@ -50,7 +50,7 @@
 						<li><a href="{{ path('daw_dieta_quecomer') }}">Qué comer</a></li>
 						<li><a href="{{ path('daw_dieta_quebeber') }}">Qué beber</a></li>
 						<li><a href="{{ path('daw_dieta_recetas') }}">Recetas</a></li>
-						<li><a href="calendario.html">Calendario de dietas</a></li>
+						<li><a href="{{ path('daw_dieta_calendario') }}">Calendario de dietas</a></li>
 						<li><a href="{{ path('usuario_new') }}">Registro</a></li>
 						<li><a href="{{ path('login') }}">Iniciar sesión</a></li>
 					</ul>{% endblock %}
